@@ -118,6 +118,14 @@ Bug fixes
   The same crash came from :file:`conf.py` for a ``needs_functions`` entry that is not
   callable, which is now skipped with a ``needs.config`` warning instead.
 
+- 🐛 On Sphinx 7.4 with ``show_warning_types = True`` the ``[needs.*]`` type of a warning
+  is shown once, not twice (:issue:`2091`)
+
+  Before Sphinx 8, Sphinx-Needs appends the type to its warnings itself, as Sphinx 8 does
+  by default; it also did so when ``show_warning_types`` had Sphinx 7.4 append it, so the
+  line ended in ``[needs.link_outgoing] [needs.link_outgoing]``. It is now appended only
+  where Sphinx does not append it.
+
 .. _`release:8.5.0`:
 
 8.5.0
